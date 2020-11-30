@@ -115,7 +115,7 @@ export default function SignIn(
     </div>
     <div class="form-group col-md-4">
       <label for="inputState">Prov/State</label>
-      <select id="inputState" class="form-control" name="state" onChange={handleChange}>
+      {/* <select id="inputState" class="form-control" name="state" onChange={handleChange}>
         <option selected>Choose...</option>
         <option>Buenos Aires</option>
         <option>Tucuman</option>
@@ -127,7 +127,8 @@ export default function SignIn(
         <option>Buenos Aires</option>
         <option>Buenos Aires</option>
 
-      </select>
+      </select> */}
+      <input type="text" class="form-control" id="inputCity" name="city" onChange={handleChange}/>
     </div>
   </div>
   <div class="form-group">
