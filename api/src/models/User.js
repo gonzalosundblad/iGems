@@ -6,12 +6,12 @@ const { DataTypes } = require('sequelize');
 const User = (sequelize) => {
   // defino el modelo
   sequelize.define('user', {
-    user_id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true,
-      unique: true
-    },
+    // user_id: {
+    //   type: DataTypes.INTEGER,
+    //   autoIncrement: true,
+    //   primaryKey: true,
+    //   unique: true
+    // },
     username: {
         type: DataTypes.STRING,
         allowNull: false,
