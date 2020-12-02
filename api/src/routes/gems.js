@@ -1,5 +1,5 @@
 const server = require('express').Router();
-const { Gem, Genre } = require('../db.js');
+const { Gem, Genre, User } = require('../db.js');
 
 // server.post('/', (req, res) => {                                        //S34 : Crear Ruta para creación de Usuario (CON HASHEO ASYNC)
 
@@ -26,7 +26,7 @@ const { Gem, Genre } = require('../db.js');
 
   server.post('/', async (req, res) => {  //AGREGA GEM
       console.log(req.body)
-      const {name, link, genre, description, time } = req.body;
+      const { name, link, genre, description, time, userId } = req.body;
       var gem = await Genre.findAll({
           where: {
               name: genre
@@ -40,14 +40,15 @@ const { Gem, Genre } = require('../db.js');
           description,
           time
       }).then(gem => {
-          gem.addGenres(genreId)    
-          res.status(200).json(gem)
+          gem.addUsers(userId);
+          gem.addGenres(genreId);
+          res.status(200).json(gem);
       }).catch(err => {
           res.status(400).send('errrrrrorrorr')
       })
   })
 
-  
+
 
   server.get('/', (req, res) => { //TRAE TODAS LAS GEMS
       Gem.findAll()

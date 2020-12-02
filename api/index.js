@@ -1,7 +1,7 @@
 const server = require('./src/app.js');
 const port = 8000
 const { conn } = require('./src/db.js');
-const { Gem, Genre } = require('./src/db.js');
+const { Gem, Genre, User } = require('./src/db.js');
 const e = require('express');
 
 
@@ -17,6 +17,9 @@ conn.sync({ force }).then(() => {
     })
     var genres = arrayGenres.map(genre => {
       Genre.create({name: genre})
+    })
+    var users = arrayUsers.map(user => {
+      User.create(user)
     })
   })
 })
@@ -146,7 +149,21 @@ var arrayGenres = ['Music', 'Science', 'Photography', 'Literature', 'Shortfilm',
 'Visual Art', 'Dance', 'History', 'Sports', 'Interesting facts', 'Mindblowing ideas', 'Biographies',
  'Mustsee videoclips', 'Mustsee live shows', 'Cool websites', 'Off computer ideas']
 
- 
+ var arrayUsers = [
+   {
+     name: 'gon',
+     email: 'gon@gmail.com',
+     password: '1234',
+     username: 'gonete'
+   },
+   {
+    name: 'eric',
+    email: 'eric@gmail.com',
+    password: '1234',
+    username: 'ericbro'
+  }
+ ]
+
 
 server.get('/', (req, res) => {
   res.send('Hello World!')
