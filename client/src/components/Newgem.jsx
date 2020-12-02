@@ -14,6 +14,7 @@ export default function New() {
     description: "",
     time: "",
   })
+  const [other, setOther] = useState(false)
 
 console.log(input)
 //   var input = {
@@ -21,8 +22,8 @@ console.log(input)
 //     link: 'www.qcyo.com',
 //     genre: 'Science'
 // }
-
 const handleInputChange = function (e) {
+  if(e.target.value == 'Other') setOther(true)
   setInput({
     ...input,
     [e.target.name]: e.target.value
@@ -50,7 +51,8 @@ axios.post(`http://localhost:8000/gems/`, input)
       <br/>
       <Form.Control type="text" placeholder="Link" name='link' onChange={handleInputChange}/>
       <br/>
-      <Form.Control as="select" name = 'genre' onChange={handleInputChange}>
+      { !other &&
+      <Form.Control as="select" name ='genre' onChange={handleInputChange}>
     <option selected>Select genre</option>
             <option>Music</option>
             <option>Science</option>
@@ -66,10 +68,20 @@ axios.post(`http://localhost:8000/gems/`, input)
             <option>Mindblowing ideas</option>
             <option>Biographies</option>
             <option>Mustsee videoclips</option>
-            <option>Mustsee lives shows</option>
+            <option>Mustsee live shows</option>
             <option>Cool websites</option>
             <option>Off computer ideas</option>
+            <option>Other</option>
   </Form.Control>
+}
+  {
+    other && 
+    <div>
+      <Form.Control type="text" placeholder="Other Genre" name='genre' onChange={handleInputChange}/>
+      <button onClick={() => setOther(false)}>Back to genres</button>
+    </div>
+
+  }
   <br />
       <Form.Control type="text" placeholder="Description" name='description'onChange={handleInputChange} />
   <br />

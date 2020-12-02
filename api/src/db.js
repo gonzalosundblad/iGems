@@ -35,6 +35,10 @@ const { Gem, Genre, User } = sequelize.models;
 Gem.belongsToMany(User, { through: 'usergem' });
 User.belongsToMany(Gem, { through: 'usergem' });
 
+Genre.belongsToMany(Gem, { through: 'genregem' });
+Gem.belongsToMany(Genre, { through: 'genregem' });
+
+
 
 
 module.exports = {

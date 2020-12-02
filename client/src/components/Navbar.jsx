@@ -27,9 +27,6 @@ export default function Navbar() {
                         <li className="nav-item">
                             <NavLink to='/add' className="nav-link" >addGem</NavLink>
                         </li>
-                        <li className="nav-item">
-                            <NavLink to='/add' className="nav-link" >addGem</NavLink>
-                        </li>
                         { !logged && (
                         <div className="collapse navbar-collapse" id="navbarNav">
                             <li className="nav-item">
