@@ -20,13 +20,13 @@ export default function SignIn(
     confirmpassword: '',
     country: '',
     city: '',
-    state: ''
+    prov: ''
   })
 
   var missing;
   var passwordNotMatch;
   var passwordIsShort;
-  if(!input.name || !input.lastname || !input.email || !input.username || !input.password || !input.confirmpassword || !input.country || !input.city || !input.state) missing = true;
+  if(!input.name || !input.lastname || !input.email || !input.username || !input.password || !input.confirmpassword || !input.country || !input.city || !input.prov) missing = true;
   if(input.password !== input.confirmpassword) passwordNotMatch = true;
   if(input.password.length < 6) passwordIsShort = true;
   const handleChange = (e) => {
@@ -110,10 +110,6 @@ export default function SignIn(
       <input type="text" class="form-control" id="inputCity" name="country" onChange={handleChange}/>
     </div>
     <div class="form-group col-md-4">
-      <label for="inputCity">City</label>
-      <input type="text" class="form-control" id="inputCity" name="city" onChange={handleChange}/>
-    </div>
-    <div class="form-group col-md-4">
       <label for="inputState">Prov/State</label>
       {/* <select id="inputState" class="form-control" name="state" onChange={handleChange}>
         <option selected>Choose...</option>
@@ -128,6 +124,10 @@ export default function SignIn(
         <option>Buenos Aires</option>
 
       </select> */}
+      <input type="text" class="form-control" id="inputCity" name="prov" onChange={handleChange}/>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputCity">City</label>
       <input type="text" class="form-control" id="inputCity" name="city" onChange={handleChange}/>
     </div>
   </div>
