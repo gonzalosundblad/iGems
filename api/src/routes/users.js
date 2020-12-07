@@ -50,7 +50,7 @@ server.get('/', (req, res) => {
         // if(!res) {
         //     res.status(400).send('email not in db')
         // }
-        console.log(res, 'ji')
+        console.log(res.body, 'ji')
         if(res) {
             res.status(200).send('email ok')
         }

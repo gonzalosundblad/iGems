@@ -6,9 +6,10 @@ import { getGems } from './redux/actions'
 
 
  function Videos({taste, mins, gems, getGems}) {
+// console.log(taste, mins, gems, getGems)
+console.log(gems)
 
-
-  useEffect(() => {getGems()}, []) 
+  useEffect(() => {getGems({taste: taste, mins: mins})}, []) 
 
      return (
          <div>
@@ -19,7 +20,7 @@ import { getGems } from './redux/actions'
     <div>
  
     {
-       gems.filter(video => ((video.genre === taste) && (video.time == mins))).map((vid, i) => (
+       gems.filter(video => ((video.genres[0].name === taste) && (video.time == mins))).map((vid, i) => (
           <div key={i}>
             <a target="_blank" rel="noreferrer" href={vid.link}>{vid.name}</a> {/* el noreferrer es importante por seguridad */}
             <button>Fav</button>
@@ -47,7 +48,7 @@ function mapStateToProps(state) {
   
 const mapDispatchToProps = dispatch => {
   return {
-    getGems: () => dispatch(getGems()),
+    getGems: (payload) => dispatch(getGems(payload)),
   }
 }
 
