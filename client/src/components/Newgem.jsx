@@ -58,6 +58,7 @@ axios.post(`http://localhost:8000/gems/`, input)
             <option>Science</option>
             <option>Photography</option>
             <option>Literature</option>
+            <option>Psychology</option>
             <option>Shortfilm</option>
             <option>Architecture</option>
             <option>Visual Art</option>

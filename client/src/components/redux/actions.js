@@ -24,9 +24,10 @@ export function getGemsRequest(allGems) {//va a REDUCER
     payload: allGems
   }
 }
-export function getGems() {
+export function getGems(payload) {
+  // console.log(payload)
   return (dispatch) => {
-    axios.get(`http://localhost:8000/gems/`)
+    axios.get(`http://localhost:8000/gems/`, payload)
       .then(response => { dispatch(getGemsRequest(response.data)) })
       .catch(err => { console.log(err) })
   }
